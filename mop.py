@@ -50,7 +50,7 @@ while True:
 
   # compute total memory for it and it's children
   mem = sum([getRESMem(pid) for pid in [p.pid] + children ])
-  print "total memory of " + str(children) + " is " + str(mem)
+  # print "total memory of " + str(children) + " is " + str(mem)
   if mem > max_mem:
     print "process reached memory " + str(mem) + " so i'm moppin it along with children"
     print children
@@ -59,4 +59,4 @@ while True:
       print "killing child with pid " + str(pid)
       os.kill(pid, signal.SIGKILL) # tell it to fuck off no excuse
     break
-  time.sleep(2) # wait for a bit
+  time.sleep(0.1) # wait for a bit
